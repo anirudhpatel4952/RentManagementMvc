@@ -1,0 +1,68 @@
+@model RentalViewModel
+
+<div>
+    <h2>New Unit</h2>
+    </br>
+    <p>Please enter the following information to add a new Unit to the rent management system:</p>
+
+    <div>
+        <form asp-action="Create">
+            <div class="form-row">
+
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault01">Apartment number</label>
+                    <input type="number" asp-for="Apartment" class="form-control" id="validationDefault01"
+                        value="4140" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault02">Unit</label>
+                    <input type="number" asp-for="Unit" class="form-control" id="validationDefault02"
+                        placeholder="1" required>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault02">Number Of Rooms</label>
+                    <input type="number" asp-for="NumberOfRoom" class="form-control" id="validationDefault02"
+                        value="2" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault03">Cost</label>
+                    <input type="number" asp-for="Cost" class="form-control" id="validationDefault03" value="900"
+                        required readonly>
+                </div>
+            </div>
+
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Is Assigned to a Tenant?</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="IsAssigned" name="gridRadios"
+                                id="gridRadios1" value="option1" checked>
+                            <label class="form-check-label" for="gridRadios1">
+                                False
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="IsAssigned" name="gridRadios"
+                                id="gridRadios2" value="option2" disabled>
+                            <label class="form-check-label" for="gridRadios2">
+                                True
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-success">Create</button>
+            
+        </form>
+        </br>
+        <div>
+            <a class="btn btn-primary" asp-action="Index">Back To The List Of Units</a>
+        </div>
+    </div>
+    </br>
+
+</div>

@@ -1,0 +1,21 @@
+@model rentManagement.Models.Rental
+
+</br>
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Apartment:</dt>
+        <dd class="col-sm-9">@Model.Apartment</dd>
+
+        <dt class="col-sm-3">Unit:</dt>
+        <dd class="col-sm-9">@Model.Unit</dd>
+
+        <dt class="col-sm-3">Number of Rooms:</dt>
+        <dd class="col-sm-9">@Model.NumberOfRoom</dd>
+
+        <dt class="col-sm-3">Cost:</dt>
+        <dd class="col-sm-9">@Model.Cost</dd>
+
+        <dt class="col-sm-3">Is assigned to a Tenant?</dt>
+        <dd class="col-sm-9">@Model.IsAssigned</dd>
+    </dl>
+</div>

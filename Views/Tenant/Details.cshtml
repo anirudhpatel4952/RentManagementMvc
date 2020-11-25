@@ -1,4 +1,26 @@
+@model rentManagement.Models.Tenant
 
 <div>
-    Tenant Details
+    <dl class="row">
+        <dt class="col-sm-3">Full Name:</dt>
+        <dd class="col-sm-9">@Model.FullName</dd>
+
+        <dt class="col-sm-3">Address:</dt>
+        <dd class="col-sm-9">@Model.Address</dd>
+
+        <dt class="col-sm-3">Postal Code:</dt>
+        <dd class="col-sm-9">@Model.PostalCode</dd>
+        
+        <dt class="col-sm-3">City:</dt>
+        <dd class="col-sm-9">@Model.City</dd>
+
+        <dt class="col-sm-3">Id Proof Provided:</dt>
+        <dd class="col-sm-9">@Model.IdProof</dd>
+
+        <dt class="col-sm-3">Deposit paid:</dt>
+        <dd class="col-sm-9">@Model.Deposit</dd>
+
+        <dt class="col-sm-3">Is assigned a Unit?</dt>
+        <dd class="col-sm-9">@Model.IsAssigned</dd>
+    </dl>
 </div>

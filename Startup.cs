@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Text.Json;
-using Newtonsoft.Json;
+
 
 using rentManagement;
 using rentManagement.Storage;
@@ -29,9 +28,7 @@ namespace rentManagementMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            // services.AddControllers().AddNewtonsoftJson();
-            // services.AddControllersWithViews().AddNewtonsoftJson();
-            // services.AddRazorPages().AddNewtonsoftJson();
+            
 
             var tenantStorage = new TenantStorageList();
             var rentalStorage = new RentalStorageList();
