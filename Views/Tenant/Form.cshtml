@@ -1,0 +1,93 @@
+@model TenantViewModel;
+
+<div>
+    <h2>New Tenant Form</h2>
+    </br>
+    <p>Please enter the following information to add a new tenant to the rent management system:</p>
+
+    <div>
+        <form asp-action="Create">
+            @* <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault01">Tenant id</label>
+                    <input type="number" asp-for="TenantId" class="form-control" id="validationDefault01"
+                        placeholder="4**" required>
+                </div>
+            </div> *@
+            <div class="form-row">
+
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault01">First name</label>
+                    <input type="text" asp-for="FirstName" class="form-control" id="validationDefault01"
+                        placeholder="Jane" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault02">Last name</label>
+                    <input type="text" asp-for="LastName" class="form-control" id="validationDefault02"
+                        placeholder="Doe" required>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault02">Address</label>
+                    <input type="text" asp-for="Address" class="form-control" id="validationDefault02"
+                        value="0-4140 Rae Street" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault03">City</label>
+                    <input type="text" asp-for="City" class="form-control" id="validationDefault03" value="Regina"
+                        required readonly>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault03">Postal code</label>
+                    <input type="text" asp-for="PostalCode" class="form-control" id="validationDefault03" value="S4S"
+                        required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault05">Id Proof</label>
+                    <input type="text" asp-for="IdProof" class="form-control" id="validationDefault05"
+                        value="Driver's License" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault05">Deposit</label>
+                    <input type="number" asp-for="Deposit" class="form-control" id="validationDefault05" value=900 required readonly>
+                </div>
+            </div>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Is Assigned a Unit?</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="IsAssigned" name="gridRadios"
+                                id="gridRadios1" value="option1" checked>
+                            <label class="form-check-label" for="gridRadios1">
+                                False
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="IsAssigned" name="gridRadios"
+                                id="gridRadios2" value="option2" disabled>
+                            <label class="form-check-label" for="gridRadios2">
+                                True
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-success">Create</button>
+            
+        </form>
+        </br>
+        <div>
+            <a class="btn btn-primary" asp-action="Index">Back To The List Of Tenants</a>
+        </div>
+    </div>
+    </br>
+
+</div>

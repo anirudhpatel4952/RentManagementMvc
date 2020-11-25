@@ -1,0 +1,32 @@
+@model List<rentManagement.Models.Tenant>
+
+<h2>List of Tenants</h2>&nbsp;
+<div>
+    <div>Number of Tenants : @Model.Count</div>&nbsp;
+
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Full Name of Tenants</th>
+            <th>Full Address</th>
+            <th>Deposit Paid</th>
+            <th>Is Assigned a Unit?</th>
+            <th></th>
+        </tr>
+        </thead>
+        @for (var i = 0; i < Model.Count; i++){
+            <tr>
+                <td>@Model[i].FullName</td>
+                <td>@Model[i].Address @Model[i].PostalCode @Model[i].City</td>
+                <td>@Model[i].Deposit</td>
+                <td style="color: red;">@Model[i].IsAssigned</td>
+                <td><a asp-action="Details" asp-route-id="@Model[i].TenantId">View Tenant</a></td>
+            </tr>
+        }
+    
+    
+    </table>
+    <div>
+        <a class="btn btn-primary" asp-action="Form">Create New Tenant</a>
+    </div>
+</div>
