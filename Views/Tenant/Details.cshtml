@@ -23,4 +23,28 @@
         <dt class="col-sm-3">Is assigned a Unit?</dt>
         <dd class="col-sm-9">@Model.IsAssigned</dd>
     </dl>
+
+    <div>
+        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.TenantId">Edit Tenant</a>
+    </div>
+    </br>
+    @if(@Model.IsAssigned == false){
+        <div>
+            <a class="btn btn-danger"  asp-action="Remove" asp-route-id="@Model.TenantId">Remove Tenant</a>
+        </div>
+        <br>
+        }
+    else {
+        <div>
+            <a class="btn btn-danger" href="">Remove Tenant</a>
+        </div>
+            <div class="alert alert-warning">
+                <strong>Warning!</strong> <br>
+                <p style="color: red;">Please UnAssign the unit that has been assigned to @Model.FullName, then come back to delete the tenant.</p>
+            </div>
+        <div>
+            
+        </div>
+        <br>
+    }
 </div>

@@ -1,0 +1,18 @@
+@model TenantViewModel;
+
+
+<div>
+    <form asp-action="Delete">
+            <div class="form-row">
+
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault01">Tenant Id</label>
+                    <input type="text" asp-for="TenantId" class="form-control" id="validationDefault01" required>
+                </div>
+                
+            </div>
+                
+            <button type="submit" class="btn btn-success">Delete</button>
+            
+    </form>
+</div>

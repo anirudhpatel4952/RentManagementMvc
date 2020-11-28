@@ -1,3 +1,4 @@
+
 @model rentManagement.Models.Rental
 
 </br>
@@ -18,4 +19,27 @@
         <dt class="col-sm-3">Is assigned to a Tenant?</dt>
         <dd class="col-sm-9">@Model.IsAssigned</dd>
     </dl>
+
+    <div>
+        <a class="btn btn-warning" asp-action="Edit" asp-route-unit="@Model.Unit">Edit Unit</a>
+    </div>
+    </br>
+    @if(@Model.IsAssigned == false){
+    <div>
+        <a class="btn btn-success" asp-controller="Assignment" asp-action="CreateForm" asp-route-unit="@Model.Unit">Assign Unit</a>
+        
+    </div>
+    <br>
+    }
+    @if(@Model.IsAssigned == true){
+        <div>
+        <a class="btn btn-danger" asp-controller="Assignment" asp-action="RemoveForm" asp-route-unit="@Model.Unit">UnAssign Unit</a>
+        </div>
+         <div class="alert alert-warning">
+                <strong>Warning!</strong> <br>
+                <p style="color: red;">To UnAssign the unit that has been assigned to the tenant, you will need the TenantId.</p>
+        </div>
+        
+    }
+    
 </div>

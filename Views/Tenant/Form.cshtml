@@ -1,19 +1,24 @@
 @model TenantViewModel;
 
+@{
+    string pageTitle = "Add New Tenant";
+    string action = "Create"; 
+    if (ViewBag.IsEditing == true){
+        //Editing
+        pageTitle = "Update Tenant";
+        action = "Update";
+
+    }
+}
+
 <div>
-    <h2>New Tenant Form</h2>
+    <h2>@pageTitle Form</h2>
     </br>
-    <p>Please enter the following information to add a new tenant to the rent management system:</p>
+    <p>Please enter the following information to @pageTitle to the Rent Management System:</p>
 
     <div>
-        <form asp-action="Create">
-            @* <div class="form-row">
-                <div class="col-md-6 mb-3">
-                    <label for="validationDefault01">Tenant id</label>
-                    <input type="number" asp-for="TenantId" class="form-control" id="validationDefault01"
-                        placeholder="4**" required>
-                </div>
-            </div> *@
+        <form asp-action="@action">
+            <input type="hidden" asp-for="TenantId"/>
             <div class="form-row">
 
                 <div class="col-md-6 mb-3">
@@ -32,7 +37,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="validationDefault02">Address</label>
                     <input type="text" asp-for="Address" class="form-control" id="validationDefault02"
-                        value="0-4140 Rae Street" required>
+                        placeholder="0-4140 Rae Street" required>
                 </div>
             </div>
             <div class="form-row">
@@ -44,7 +49,7 @@
 
                 <div class="col-md-6 mb-3">
                     <label for="validationDefault03">Postal code</label>
-                    <input type="text" asp-for="PostalCode" class="form-control" id="validationDefault03" value="S4S"
+                    <input type="text" asp-for="PostalCode" class="form-control" id="validationDefault03" placeholder="S4S"
                         required>
                 </div>
             </div>
@@ -52,7 +57,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="validationDefault05">Id Proof</label>
                     <input type="text" asp-for="IdProof" class="form-control" id="validationDefault05"
-                        value="Driver's License" required>
+                        placeholder="Driver's License" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationDefault05">Deposit</label>
@@ -80,7 +85,7 @@
                     </div>
                 </div>
             </fieldset>
-            <button type="submit" class="btn btn-success">Create</button>
+            <button type="submit" class="btn btn-success">Save</button>
             
         </form>
         </br>

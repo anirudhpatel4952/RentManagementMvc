@@ -1,0 +1,28 @@
+@model AssignmentViewModel;
+
+@{
+    var action = "Remove";
+    if (ViewBag.IsCreating == true){
+        action = "Create";
+    }
+
+}
+<div>
+    <form asp-action="@action">
+            <input type="hidden" asp-for="Unit"/>
+            <div class="form-row">
+
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault01">Tenant Id</label>
+                    <input type="text" asp-for="TenantId" class="form-control" id="validationDefault01" required>
+                </div>
+                
+            </div>
+            @if(@action == "Create"){    
+                <button type="submit" class="btn btn-success">@action</button>
+            }
+            else {
+                <button type="submit" class="btn btn-danger">@action</button>
+            }
+    </form>
+</div>

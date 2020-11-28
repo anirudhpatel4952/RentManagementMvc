@@ -1,18 +1,30 @@
 @model RentalViewModel
 
+@{
+    var action = "Create";
+    var pageTitle = "Add New Unit";
+
+    if(ViewBag.IsEditing == true){
+        action = "Update";
+        pageTitle = "Edit Unit";
+    }
+
+
+}
+
 <div>
-    <h2>New Unit</h2>
+    <h2>@pageTitle Form</h2>
     </br>
-    <p>Please enter the following information to add a new Unit to the rent management system:</p>
+    <p>Please enter the following information to @pageTitle to the rent management system:</p>
 
     <div>
-        <form asp-action="Create">
+        <form asp-action="@action">
             <div class="form-row">
 
                 <div class="col-md-6 mb-3">
                     <label for="validationDefault01">Apartment number</label>
                     <input type="number" asp-for="Apartment" class="form-control" id="validationDefault01"
-                        value="4140" required>
+                        placeholder="4140" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationDefault02">Unit</label>
@@ -25,7 +37,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="validationDefault02">Number Of Rooms</label>
                     <input type="number" asp-for="NumberOfRoom" class="form-control" id="validationDefault02"
-                        value="2" required>
+                        placeholder="2" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationDefault03">Cost</label>
@@ -55,7 +67,7 @@
                     </div>
                 </div>
             </fieldset>
-            <button type="submit" class="btn btn-success">Create</button>
+            <button type="submit" class="btn btn-success">Save</button>
             
         </form>
         </br>
