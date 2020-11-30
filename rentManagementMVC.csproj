@@ -4,6 +4,10 @@
     <ProjectReference Include="..\rentManagement\rentManagement.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="F23.StringSimilarity" Version="3.1.0" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>

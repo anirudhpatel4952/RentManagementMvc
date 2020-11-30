@@ -138,10 +138,23 @@ namespace rentManagementMVC.Controllers
             _rentManagementSystem.DeleteATenant(tenant.TenantId);
             return RedirectToAction("Index");}
         }
-        // public IActionResult Search(Guid id){
-        //     var tenant = _rentManagementSystem.SearchForTenants(id);
-        //     return View(tenant);
-        // }
+        public IActionResult Search(){
+            var search = new SearchViewModel(){
+                FirstName = "",
+                SearchResults = new List<Tenant>()
+            };
+            return View(search);
+        }
+        
+
+        [HttpPost]
+
+        public IActionResult SearchTenant(SearchViewModel searchViewModel){
+            searchViewModel.SearchResults = _rentManagementSystem.SearchForTenantByName(searchViewModel.FirstName);
+
+            return View("search", searchViewModel);
+        }
+            
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

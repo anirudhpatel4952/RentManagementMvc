@@ -3,6 +3,7 @@ using rentManagement;
 using rentManagement.Models;
 using rentManagement.Storage;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace rentManagementMVC.Models
 {
@@ -15,5 +16,6 @@ namespace rentManagementMVC.Models
         public int Unit { get; set; }
 
         public string FullName { get; set; }
+
     }
 }

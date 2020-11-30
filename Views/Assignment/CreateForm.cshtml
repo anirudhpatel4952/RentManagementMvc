@@ -1,12 +1,20 @@
 @model AssignmentViewModel;
 
 @{
-    var action = "Remove";
-    if (ViewBag.IsCreating == true){
-        action = "Create";
+    var action = "Create";
+    if (ViewBag.IsCreating == false){
+        action = "Remove";
     }
 
 }
+@if(action == "Remove"){
+<div>
+    <form asp-action="Remove">
+        <button type="submit" class="btn btn-success">Remove</button>
+    </form>
+</div>
+}
+@if(action == "Create"){
 <div>
     <form asp-action="@action">
             <input type="hidden" asp-for="Unit"/>
@@ -18,11 +26,8 @@
                 </div>
                 
             </div>
-            @if(@action == "Create"){    
-                <button type="submit" class="btn btn-success">@action</button>
-            }
-            else {
-                <button type="submit" class="btn btn-danger">@action</button>
-            }
+            
+                <button type="submit" class="btn btn-success">Create</button>
     </form>
 </div>
+}
