@@ -34,9 +34,8 @@ namespace rentManagementMVC.Controllers
         // working on this
 
         public IActionResult RemoveForm(int unit){
-           _rentManagementSystem.Unassignment(unit);
             ViewBag.IsCreating = false;
-            return RedirectToAction("Index", "Rental");
+            return View("CreateForm");
         }
 
         [HttpPost]
@@ -53,14 +52,18 @@ namespace rentManagementMVC.Controllers
             }
         }
         
-        // [HttpPost]
+        [HttpPost]
 
-        // public IActionResult Remove(int unit){
-        //     _rentManagementSystem.Unassignment(unit);
-        //     ViewBag.IsCreating = false;
-        //     return RedirectToAction("Index", "Rental");
-        //     }
-           
+         public IActionResult Remove(AssignmentViewModel oldAssignment){
+            if (ModelState.IsValid){
+                _rentManagementSystem.Unassignment(oldAssignment.TenantId, oldAssignment.Unit);
+                ViewBag.IsCreating = false;
+                return RedirectToAction("Index", "Rental");
+            }
+            else {
+                return View("CreateForm");
+            }
+        }
             
         
         
