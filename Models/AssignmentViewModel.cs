@@ -17,5 +17,7 @@ namespace rentManagementMVC.Models
 
         public string FullName { get; set; }
 
+        public SelectList TenantList { get; set; }
+
     }
 }

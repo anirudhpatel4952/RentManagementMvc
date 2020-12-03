@@ -11,8 +11,7 @@
                 <th>Unit Number Assigned</th>
                 <th>Assignment Date/Contract Date</th>
                 <th>Assignment Id</th>
-                <th>Assignment Completed</th>
-                <th></th>
+                <th>Assignment Status</th>
             </tr>
         </thead>
         @for (var i = 0; i < Model.Count; i++)
@@ -23,10 +22,10 @@
                 <td>@Model[i].ContractDate</td>
                 <td>@Model[i].AssignId</td>
                 @if(@Model[i].IsAssigned == false){
-                    <td style="color: red;">@Model[i].IsAssigned</td>
+                    <td style="color: red;">Removed</td>
                 }
                 else{
-                    <td style="color: green;">@Model[i].IsAssigned</td>
+                    <td style="color: green;">Completed</td>
                 }
             </tr>
         }

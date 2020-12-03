@@ -17,7 +17,12 @@
         <dd class="col-sm-9">@Model.Cost</dd>
 
         <dt class="col-sm-3">Is assigned to a Tenant?</dt>
-        <dd class="col-sm-9">@Model.IsAssigned</dd>
+        @if(Model.IsAssigned == true){
+        <dd class="col-sm-9">Yes</dd>
+        }
+        else{
+        <dd class="col-sm-9">No</dd>    
+        }
     </dl>
 
     <div>
@@ -37,7 +42,7 @@
         </div>
          <div class="alert alert-warning">
                 <strong>Note!</strong>
-                <p style="color: red;">It will unassign this unit and the tenant.
+                <p style="color: red;">This will unassign this unit and the tenant it was assigned to.
                 </p>
         </div>
         

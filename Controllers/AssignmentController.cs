@@ -27,15 +27,31 @@ namespace rentManagementMVC.Controllers
             return View("Index", assignments);
         }
 
-        public IActionResult CreateForm(int unit){
-            ViewBag.IsCreating = true;
-            return View();
-        }
+        // public IActionResult CreateForm(int unit){
+        //     ViewBag.IsCreating = true;
+        //     return View();
+        // }
         // working on this
 
+        public IActionResult CreateForm(int unit){
+            
+            var tenants = _rentManagementSystem.PrintAllTenants();
+            var tenantList = tenants.Select(x => new {x.TenantId, x.FullName}).ToList();
+            var selectList = new SelectList(tenantList, "TenantId", "FullName");
+        
+            var rental = _rentManagementSystem.SearchForUnits(unit);
+            var assignmentViewModel = new AssignmentViewModel(){
+                Unit = unit,
+                TenantList = selectList,
+            };
+            ViewBag.IsCreating = true;
+            return View(assignmentViewModel);
+
+        }
         public IActionResult RemoveForm(int unit){
+            _rentManagementSystem.UnassignmentByUnit(unit);
             ViewBag.IsCreating = false;
-            return View("CreateForm");
+            return RedirectToAction("Index", "Rental");
         }
 
         [HttpPost]
@@ -52,18 +68,18 @@ namespace rentManagementMVC.Controllers
             }
         }
         
-        [HttpPost]
+        // [HttpPost]
 
-         public IActionResult Remove(AssignmentViewModel oldAssignment){
-            if (ModelState.IsValid){
-                _rentManagementSystem.Unassignment(oldAssignment.TenantId, oldAssignment.Unit);
-                ViewBag.IsCreating = false;
-                return RedirectToAction("Index", "Rental");
-            }
-            else {
-                return View("CreateForm");
-            }
-        }
+        //  public IActionResult Remove(AssignmentViewModel oldAssignment){
+        //     if (ModelState.IsValid){
+        //         _rentManagementSystem.Unassignment(oldAssignment.TenantId, oldAssignment.Unit);
+        //         ViewBag.IsCreating = false;
+        //         return RedirectToAction("Index", "Rental");
+        //     }
+        //     else {
+        //         return View("CreateForm");
+        //     }
+        // }
             
         
         

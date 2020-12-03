@@ -21,7 +21,12 @@
         <dd class="col-sm-9">@Model.Deposit</dd>
 
         <dt class="col-sm-3">Is assigned a Unit?</dt>
-        <dd class="col-sm-9">@Model.IsAssigned</dd>
+        @if(Model.IsAssigned == true){
+        <dd class="col-sm-9">Yes</dd>
+        }
+        else{
+        <dd class="col-sm-9">No</dd>    
+        }
     </dl>
 
     <div>
